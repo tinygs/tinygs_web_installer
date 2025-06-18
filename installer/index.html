@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<meta content='width=device-width' name='viewport'>
+  <meta name="theme-color" content="#222222">
+  <link rel="shortcut icon" href="favicon.png"> 
+	<title>Install TinyGS</title>
+  <script
+    type="module"
+    src="installer/install-button.js"
+  ></script>
+	<style>
+		body {
+			font-family: Verdana, Helvetica, sans-serif;
+			text-align: center;
+			background-color: #222;
+			margin: 0;
+      color: #fff;
+		}
+    
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='white'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
+      background-size: 12px;
+      background-position: 206px 17px;
+      padding-left: 12px !important;
+      background-repeat: no-repeat;
+      outline: none;
+    }
+    select:-moz-focusring {
+      transition-duration: 0s;
+      color: transparent;
+      text-shadow: 0 0 0 #fff;
+    }
+    option {
+      background-color: var(--c-3);
+      color: var(--c-f);
+    }
+    
+    .btn {
+      outline: none;
+      cursor: pointer;
+      padding: 8px;
+      margin: 10px;
+      width: 230px;
+      font-family: Verdana, Helvetica, sans-serif;
+      font-size: 19px;
+      background-color: #333;
+      color: white;
+      border: 0px solid white;
+      border-radius: 25px;
+    }
+    
+    img {
+      width: 158px;
+      max-width: 80%;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      margin: 3vh 0 5px 0;
+      animation: fi 1s;
+    }
+    
+    @keyframes fi {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+    }
+    
+    .main {
+      animation: fi 1.5s .7s both;
+    }
+    
+    a {
+      color: #fff;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    
+    ol {
+      margin: auto;
+      text-align: left;
+      display: inline-block;
+    }
+    
+    li::marker {
+      text-decoration: bold;
+      color: #09f;
+    }
+    
+    li {
+      margin: 5px;
+    }
+    
+    .container {
+      width: 80%;
+      max-width: 510px;
+      margin: auto;
+      border-radius: 5px;
+      box-sizing: border-box;
+      background-color: #222;
+      overflow: hidden;
+    }
+    
+    .inst-button {
+      padding: 5px 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      ewt-install-dialog {
+        /*--mdc-theme-primary: #ffa000; /*buttons*/
+        --mdc-theme-surface: #333;
+        --mdc-dialog-heading-ink-color: #fff;
+        --mdc-dialog-content-ink-color: #ddd;
+        --mdc-text-field-fill-color: #ddd;
+      }
+    }
+	</style>
+</head>
+<body onload="checkSupported()">
+<img alt="" src=" data:image/png;base64,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">  
+<div class="main">
+<h2>Welcome to the TinyGS web installer!</h2>
+
+<div id="flasher">
+
+<ol>
+  <li>Plug in your ESP to a USB port. We will install TinyGS <span id="verstr">2401221</span> to it.</li>
+  <li id="coms">Hit "Install" and select the correct COM port. <a onclick="showSerialHelp()">No device found?</a></li>
+  <li>Get TinyGS installed and connected in less than 3 minutes!</li>
+</ol><br><br>
+
+<div class="container inst-button">
+  <esp-web-install-button
+    id="inst"
+    manifest=""
+  >
+    <button class="btn" slot="activate">Install</button>
+  </esp-web-install-button><br>
+
+  <!-- add new builds here -->
+  <select id="ver" class="btn" onchange="setManifest()">
+
+    <optgroup label="Release">
+      <option data-manifest="bin-v2/release_0_13_3/manifest.json"
+        data-ethernet="bin-v2/release_0_13_3/manifest_e.json"
+        >2401221</option>
+
+    </optgroup>
+  <!--
+    <optgroup label="Beta">
+      <option data-manifest="bin/beta_0_14_0-b4/manifest.json"
+        data-ethernet="bin/beta_0_14_0-b4/manifest_e.json"
+        >2401271</option>
+    </optgroup>
+  -->
+    <optgroup label="Old Release">
+      <option data-manifest="bin-v2/release_0_13_1/manifest.json"
+        data-ethernet="bin-v2/release_0_13_1/manifest_e.json"
+        >2105260</option>
+
+  </select><br><br>
+  <!--
+  <div id="eth">
+   <input type="checkbox" id="ethernet" name="ethernet" onchange="setManifest()">
+   <label for="ethernet"> My board has Ethernet</label><br>
+   </div>
+  -->
+</div>
+
+</div>
+<br>Powered by <a href="https://esphome.github.io/esp-web-tools/" target="_blank">ESP Web Tools</a><br>
+<br><a href="https://github.com/G4lile0/tinyGS" target="_blank">GitHub</a>&emsp;<a href="https://tinygs.com" target="_blank">tinygs.com</a>
+
+<script>  
+  function setManifest() {
+    var sel = document.getElementById('ver');
+    var opt = sel.options[sel.selectedIndex];
+    var m = opt.dataset.manifest;
+    var me = opt.dataset.ethernet;
+    document.getElementById('eth').style.display = me ? "block":"none";
+    if (me && document.getElementById('ethernet').checked) {
+      m = me;
+    }
+    document.getElementById('inst').setAttribute('manifest',m);
+    document.getElementById('verstr').textContent = opt.text;
+  }
+  
+  function checkSupported() {
+    if (document.getElementById('inst').hasAttribute('install-unsupported')) unsupported();
+    else setManifest();
+  }
+  
+  function unsupported() {
+    document.getElementById('flasher').innerHTML = "Sorry, your browser is not yet supported!<br>Please try on Desktop Chrome or Edge.<br>"
+  }
+  
+  function showSerialHelp() {
+    document.getElementById('coms').innerHTML = `Hit "Install" and select the correct COM port.<br><br>
+    You might be missing the drivers for your board.<br>
+    Here are drivers for chips commonly used in ESP boards:<br>
+    <a href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers" target="_blank">CP2102 (square chip)</a><br>
+    <a href="https://github.com/nodemcu/nodemcu-devkit/tree/master/Drivers" target="_blank">CH34x (rectangular chip)</a><br><br>
+    Make sure your USB cable supports data transfer.<br><br>
+    `;
+  }
+</script>
+</body>
+</html>
