@@ -18,7 +18,7 @@
     {
       "chipFamily": "ESP32-S3",
       "parts": [
-        { "path": "esp32_s3_2506193_merged.bin", "offset": 0 }
+        { "path": "esp32_full.bin", "offset": 0 }
       ]
     }
   ]
