@@ -181,7 +181,7 @@
 <div class="instruction-block">
 
 <ol> 
-  <li>Plug in your ESP to a USB port. We will install TinyGS <span id="verstr">2506193</span> to it.</li>
+  <li>Plug in your ESP to a USB port. We will install TinyGS <span id="verstr">2509061</span> to it.</li>
   <li id="coms">Hit "Install" and select the correct COM port. <a onclick="showSerialHelp()">No device found?</a></li>
   <li>
     Station Registration:
@@ -195,23 +195,31 @@
 </ol>
 </div> <!-- End of instruction-block -->
         You will then choose one of two paths for configuration:
-        <div class="path-container" style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 15px; width: 90%; max-width: 1000px; margin-left: auto; margin-right: auto;">
-          <div class="path-column" style="flex: 1 1 220px; border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; box-sizing: border-box; text-align: left; background-color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); color: #333;">
-            <h4 style="margin-top: 0; margin-bottom: 10px; color: #1976d2;">➡️ Path 1: Automatic Setup</h4>
+    <div class="path-container" style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 15px; width: 90%; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <div class="path-column" style="flex: 1 1 220px; border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; box-sizing: border-box; text-align: left; background-color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); color: #333;">
+        <h4 style="margin-top: 0; margin-bottom: 10px; color: #1976d2;">➡️ Path 1: Automatic Setup 🤖</h4>
+            <p style="margin-bottom: 10px;">
+            After the installation is complete, click <strong>"NEXT"</strong> then <strong>"CONNECT TO WI-FI"</strong> to connect your device to your network.
+            </p>
+            <p style="margin-bottom: 10px;">
+            Next, click <strong>"VISIT DEVICE"</strong> to get your <strong>One-Time Password (OTP)</strong>. This password will also appear on your device's OLED screen.
+            </p>
             <p style="margin-bottom: 0;">
-              Ask the bot for <code>/weblogin</code>  Then, on the TinyGS website, click "New Station" and follow the on-screen instructions. This process will configure your station, including Wi-Fi.
+            Finally, ask your Telegram  <a href="https://t.me/tinygs_personal_bot" target="_blank">@tinygs_personal_bot</a> for <code>/weblogin</code>  to login to your TinyGS dashboard on the tinygs.com website and click <strong>"New Station."</strong> Follow the on-screen prompts, using the <strong>OTP</strong> you just obtained to configure your station.   </p>
+      </div>
+      <div class="path-column" style="flex: 1 1 220px; border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; box-sizing: border-box; text-align: left; background-color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); color: #333;">
+        <h4 style="margin-top: 0; margin-bottom: 10px; color: #1976d2;">➡️ Path 2: Manual Setup 🛠️</h4>
+            <p style="margin-bottom: 10px;">
+            Ask tyour Telegram  <a href="https://t.me/tinygs_personal_bot" target="_blank">@tinygs_personal_bot</a> to receive your <strong>MQTT credentials</strong>. You'll need these for the next step.
             </p>
-          </div>
-          <div class="path-column" style="flex: 1 1 220px; border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; box-sizing: border-box; text-align: left; background-color: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); color: #333;">
-            <h4 style="margin-top: 0; margin-bottom: 10px; color: #1976d2;">➡️ Path 2: Manual Setup</h4>
+            <p style="margin-bottom: 10px;">
+            Once the firmware is installed and your board boots up for the first time, connect to the Wi-Fi Access Point named <strong>"My TinyGS"</strong>.
+            </p>
             <p style="margin-bottom: 0;">
-              Ask the bot for <code>/mqtt</code> to get your MQTT credentials. These are needed for the manual configuration described in the next step.
+            Open a browser and go to <code>192.168.4.1</code> to access the configuration page. On this page, enter your home Wi-Fi details and the <strong>MQTT credentials</strong> you got from the bot.
             </p>
-            <p style="margin-top: 10px; margin-bottom: 0;">
-              After the firmware is installed, on the first board boot, connect to the Wi-Fi Access Point named "My TinyGS". Open its configuration page (usually at <code>192.168.4.1</code> in your browser) to set up your home Wi-Fi connection and enter the MQTT credentials you obtained from the bot.
-            </p>
-          </div>
-        </div>
+      </div>
+    </div>
 
 <p style="text-align: center; margin-top: 20px; margin-bottom: 25px; font-weight: bold; color: #4CAF50;">
   Get TinyGS installed and connected in less than 5 minutes!
@@ -229,9 +237,9 @@
   <select id="ver" class="btn" onchange="setManifest()">
 
     <optgroup label="Release">
-      <option data-manifest="/bin/release_2506193/manifest.json"
-        data-ethernet="/bin/release_2506193/manifest.json"
-        selected>2506193</option>
+      <option data-manifest="/bin/release_2509061/manifest.json"
+        data-ethernet="/bin/release_2509061/manifest.json"
+        selected>2509061</option>
 
   </select><br><br>
  
