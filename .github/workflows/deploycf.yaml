@@ -3,6 +3,7 @@ name: Cloudflare Pages Deploy
 on:
   release:
     types: [published]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -13,6 +14,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+          # token: ${{ github.token }}
 
       - name: Deploy to Cloudflare Pages (Production)
         uses: cloudflare/wrangler-action@v3
