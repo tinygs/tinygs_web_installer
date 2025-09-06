@@ -21,7 +21,7 @@ jobs:
 
       - name: Copy files excluding .github
         run: |
-          rsync -av --exclude='.github/' . deploy/
+          rsync -av --exclude='.github/' --exclude='.git/' . deploy/
 
       - name: Deploy to Cloudflare Pages (Production)
         uses: cloudflare/wrangler-action@v3
