@@ -1,0 +1,6 @@
+{
+  "name": "tinyGS",
+  "version": "2603242",
+  "new_install_prompt_erase": true,
+  "builds": [{"chipFamily":"ESP32","parts":[{"path":"esp32_2603242_merged.bin","offset":0}]},{"chipFamily":"ESP32-S3","parts":[{"path":"esp32_s3_2603242_merged.bin","offset":0}]},{"chipFamily":"ESP32-C3","parts":[{"path":"esp32_c3_2603242_merged.bin","offset":0}]}]
+}
